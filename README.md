@@ -7,5 +7,6 @@ Accéder au dossier backend avec la commande cd backend et au dossier frontend a
 Pour les deux lancer npm install
 
 Pour lancer le serveur aller sur backend et tapez la commande npx start
+
 Pour lancer le client aller sur frontend et tapez la commande ng s
 
