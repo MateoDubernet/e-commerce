@@ -1,0 +1,34 @@
+<app-navigation></app-navigation>
+<h1 class="title">Mon Compte</h1>
+
+<div *ngIf="currentUser" class="data">
+
+    <div class="first-section">
+        <div class="login">
+            <p class="email">Nom: {{currentUser.nom}}</p>
+            <p class="email">Prenom: {{currentUser.nom}}</p>
+            <p class="email">Adresse Mail: {{currentUser.email}}</p>
+            <p class="password">Mot de Passe: {{currentUser.password}}</p>
+        </div>
+    </div>
+
+    <div class="second-section">
+        <div class="orders">
+            Commandes: 
+            <div class="order" *ngFor="let order of orders">
+                <div class="date-statut">
+                    <p class="statut">Statut: {{order.statut}}</p>
+                    <p class="date">{{order.order_date | date:'dd-MM-yyyy'}}</p>
+                </div>
+                <div class="item" *ngFor="let item of order.items">
+                    <p class="name">{{item.name | titlecase}}</p>
+                    <p class="price">{{item.price}}€</p>
+                </div>
+                <div class="total">
+                    <p class="total-price">Total: {{order.total_cost}}€</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,19 @@
+<app-navigation></app-navigation>
+<h1 class="title">Panier</h1>
+
+<div *ngIf="userBasket.items && userBasket.items.length > 0">
+    <div class="basket">
+        <div *ngFor="let item of userBasket.items" class="items">
+            <div class="item-image">
+                <img class="image" src="/assets/img/placeholder.webp" alt="placeholder">
+            </div>
+            <div class="item-data">
+                <p class="name">{{item.name | titlecase}}</p>
+                <p class="price">{{item.price}}€</p>
+            </div>
+        </div>
+        <div class="total">
+            <p class="total-price">Total: {{totalCost}}€</p>
+        </div>
+        <button class="validate" kendoButton (click)="validateBasket(userBasket)">Valider le panier</button>
+</div>

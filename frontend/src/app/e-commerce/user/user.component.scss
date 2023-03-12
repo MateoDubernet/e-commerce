@@ -1,0 +1,64 @@
+* {
+    border-radius: 10px;
+}
+
+.title {
+    text-decoration: underline;
+    margin: 2% 1% 3% 1%;
+}
+
+.data {
+    border: 1px solid black;
+    padding: 2%;
+
+    .first-section, .second-section {
+        display: flex;
+        justify-content: space-between;
+        border: 1px solid black;
+
+        >div {
+            width: 100%;
+            padding: 1%;
+        }
+    }
+}
+
+.second-section {
+    margin-top: 2%;
+}
+
+.login, .addresse {
+    border-right: 1px solid black;
+}
+
+.email {
+    margin-bottom: 2%;
+}
+
+.order {
+    // display: flex;
+    // flex-direction: column;
+    border: 1px solid red;
+    padding: 1%;
+    margin-top: 1%;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
+    padding: 1%;
+    margin-top: 1%;
+}
+
+.date-statut {
+    display: flex;
+    justify-content: space-between;
+}
+
+.total {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1%;
+    padding-right: 1%;
+}

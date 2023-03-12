@@ -1,0 +1,26 @@
+<app-navigation></app-navigation>
+<h1 class="title">Nos Produits</h1>
+
+<div class="items-list">
+    <div *ngFor="let item of items" class="cards">
+        <div class="card">
+            <div class="data">
+                <div class="main-data">
+                    <p class="name">{{item.name | titlecase}}</p>
+                    <p class="price">{{item.price}}€</p>
+                </div>
+                <div class="item-image">
+                    <img class="image" src="/assets/img/placeholder.webp" alt="placeholder">
+                </div>
+                <p class="inventory">{{item.inventory}} en stock</p>
+            </div>
+
+            <div class="actions">
+                <div class="buttons">
+                    <button kendoButton (click)="viewItem(item)">Détails</button>
+                    <button kendoButton (click)="addItem(item)">Ajouter au panier</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

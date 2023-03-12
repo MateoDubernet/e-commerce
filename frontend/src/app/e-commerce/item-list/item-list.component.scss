@@ -1,0 +1,64 @@
+.title {
+    text-decoration: underline;
+    margin: 2% 1% 3% 1%;
+}
+
+.items-list {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 1%;
+    width: 100%;
+}
+
+.item-image {
+    width: inherit;
+    height: 100%;
+
+    .image{
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.cards {
+    width: 16.5%;
+    margin-top: 0.5%;
+
+    .card {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid black;
+        margin: 0 1%;
+        height: 100%;
+
+        .data {
+            padding: 1%;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+
+            .main-data {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 25;
+            }
+
+            .inventory, .price {
+                align-self: flex-end;
+            }
+        }
+
+        .actions {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+    
+            .buttons {
+                display: flex;
+                padding: 1%;
+                justify-content: space-evenly;
+                border-top: 1px solid black;
+            }
+        }
+    }
+}

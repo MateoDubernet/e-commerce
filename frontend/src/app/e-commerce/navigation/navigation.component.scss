@@ -1,0 +1,39 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+
+    height: fit-content;
+    margin-bottom: 15px;
+    background-color: rgb(175, 200, 236);
+}
+
+.side-links-right, .side-links-left {
+    display: flex;
+    padding: 1%;
+    height: fit-content;
+}
+
+.side-links-right {
+    width: 7%;
+    justify-content: space-between;
+}
+
+.side-links-left {
+    width: 10%;
+    align-items: center;
+}
+
+.separator {
+    margin: 0 10%;
+}
+
+.title {
+    align-self: center;
+}
+
+.link:hover {
+    cursor: pointer;
+    opacity: 0.7;
+    height: fit-content;
+    width: fit-content;
+}

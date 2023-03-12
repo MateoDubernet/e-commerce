@@ -1,0 +1,45 @@
+<div class="wrapper">
+    <div class="login-section">
+        <form class="k-form" [formGroup]="loginForm" (keyup.enter)="signIn()">
+            <h1 class="form-title">
+                <span>Log In</span> 
+                <legend class="k-form-legend"></legend>
+            </h1>
+    
+            <!-- LOGIN -->
+            <kendo-formfield class="formfield">
+                <kendo-label [for]="email" text="Email"></kendo-label>
+                <kendo-textbox 
+                (valueChange)="removeTabindexOnCLearButton($event)"
+                formControlName="email" #email required [clearButton]="true">
+                </kendo-textbox>
+
+                <kendo-formerror [hidden]="!loginForm.controls['email'].errors?.['pattern']">Rentrer un email</kendo-formerror>
+                <kendo-formerror [hidden]="!loginForm.controls['email'].errors?.['required']">Email Obligatoire</kendo-formerror>
+            </kendo-formfield>
+    
+            <!-- PASSWORD -->
+            <kendo-formfield class="formfield">
+                <kendo-label [for]="password" text="Mot de passe"></kendo-label>
+                <kendo-textbox 
+                (valueChange)="removeTabindexOnCLearButton($event)"
+                formControlName="password" #password required [clearButton]="true">
+                </kendo-textbox>
+                
+                <kendo-formerror [hidden]="!loginForm.controls['password'].errors?.['required']">Mot de passe Obligatoire</kendo-formerror>
+            </kendo-formfield>
+
+            <kendo-formerror *ngIf="wrongInput">Email ou Mot de passe Incorrect</kendo-formerror>
+    
+            <button type="button" kendoButton class="signin-button" (click)="signIn()">Sign In</button>
+        </form>
+    </div>
+    
+    <div class="register-link">
+        <a href="/register">Créer un compte</a>
+    </div>
+</div>
+
+
+
+

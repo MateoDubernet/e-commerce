@@ -1,0 +1,21 @@
+<app-navigation></app-navigation>
+<h1 class="title">Produits</h1>
+
+<div *ngIf="selectItem" class="selected-item">
+    <div class="item-image">
+        <img class="image" src="/assets/img/placeholder.webp" alt="placeholder">
+    </div>
+    <div class="item-data">
+        <div class="name-price">
+            <p class="name">{{selectItem.name | titlecase}}</p>
+            <p class="price">{{selectItem.price}}€</p>
+        </div>
+        <div class="description">
+            {{selectItem.description}}
+        </div>
+        <div class="buying">
+            <div class="inventory">{{selectItem.inventory}} en stock</div>
+            <button kendoButton (click)="addItem(selectItem)">Ajouter au panier</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,63 @@
+<div class="wrapper">
+    <div class="register-section">
+        <form class="k-form" [formGroup]="registerForm">
+            <h1 class="form-title">
+                <span>Register</span> 
+                <legend class="k-form-legend"></legend>
+            </h1>
+
+            <!-- NOM -->
+            <kendo-formfield class="formfield">
+                <kendo-label [for]="nom" text="Nom"></kendo-label>
+                <kendo-textbox 
+                formControlName="nom" 
+                (valueChange)="removeTabindexOnCLearButton($event)"
+                #nom required [clearButton]="true">
+                </kendo-textbox>
+                <kendo-formerror [hidden]="!registerForm.controls['nom'].errors?.['required']">Nom Obligatoire</kendo-formerror>
+            </kendo-formfield>
+
+            <!-- PRENOM -->
+            <kendo-formfield class="formfield">
+                <kendo-label [for]="prenom" text="Prenom"></kendo-label>
+                <kendo-textbox 
+                formControlName="prenom" 
+                (valueChange)="removeTabindexOnCLearButton($event)"
+                #prenom required [clearButton]="true">
+                </kendo-textbox>
+                <kendo-formerror [hidden]="!registerForm.controls['prenom'].errors?.['required']">Prenom Obligatoire</kendo-formerror>
+            </kendo-formfield>
+    
+            <!-- EMAIL -->
+            <kendo-formfield class="formfield">
+                <kendo-label [for]="email" text="Email"></kendo-label>
+                <kendo-textbox 
+                [emailValidator]="users" 
+                formControlName="email" 
+                (valueChange)="removeTabindexOnCLearButton($event)"
+                #email required [clearButton]="true">
+                </kendo-textbox>
+                <kendo-formerror [hidden]="!registerForm.controls['email'].errors?.['pattern']">Rentrer un email</kendo-formerror>
+                <kendo-formerror [hidden]="!registerForm.controls['email'].errors?.['required']">Email Obligatoire</kendo-formerror>
+                <kendo-formerror [hidden]="!registerForm.controls['email'].errors?.['uniqueEmail']">Email déja utilisé</kendo-formerror>
+            </kendo-formfield>
+    
+            <!-- PASSWORD -->
+            <kendo-formfield class="formfield">
+                <kendo-label [for]="password" text="Mot de passe"></kendo-label>
+                <kendo-textbox 
+                formControlName="password" 
+                (valueChange)="removeTabindexOnCLearButton($event)"
+                #password required [clearButton]="true">
+                </kendo-textbox>
+                <kendo-formerror [hidden]="!registerForm.controls['password'].errors?.['required']">Mot de passe Obligatoire</kendo-formerror>
+            </kendo-formfield>
+    
+            <button type="button" kendoButton class="signin-button" (click)="register()">Register</button>
+        </form>
+    </div>
+    
+    <div class="login-link">
+        <a href="/login">Connexion</a>
+    </div>
+</div>
