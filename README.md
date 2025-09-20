@@ -16,7 +16,7 @@ Aller dans le fichier backend/src/main.ts et rechercher 'new DatabaseConnection(
 
 ---
 
-## Lancement de l'application
+## Lancement
 - Pour lancer le serveur aller sur backend et tapez la commande npm start
 - Pour lancer le client aller sur frontend et tapez la commande ng s
 
@@ -24,7 +24,7 @@ Dans le navigateur aller à l'adresse indiqué dans le terminal pour frontend (n
 
 ---
 
-## Utilisation de l'application
+## Utilisation
 1. Créer un compte et se connecter
 2. Voir la liste des produits en cliquant sur nos produits
 3. Ajouter de produits au panier et visualiser les détails
