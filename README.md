@@ -2,6 +2,8 @@
 
 Cette application est une démo de site e-commerce avec visualisation de produit, ajout de produit au panier, validation du panier et visualisation du profil et des commandes réaliser.
 
+---
+
 ## Installation
 - Ouvrir deux terminal un pour le dossier frontend et un autre pour le dossier backend
 - Accéder au dossier backend avec la commande cd backend et au dossier frontend avec la commande cd frontend
