@@ -53,6 +53,6 @@ export class BasketComponent implements OnInit {
     })
 
     this.userBasket.items = [];
-    this.router.navigate(["/user"], { state: { isPasswordExpired: true } });
+    // this.router.navigate(["/user"], { state: { isPasswordExpired: true } });
   }
 }

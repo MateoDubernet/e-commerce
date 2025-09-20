@@ -1,9 +1,10 @@
-import express, { Request, Response } from "express";
+import express from "express";
+import bodyParser from 'body-parser';
+
 import { DatabaseConnection } from "./database/connection";
 import { DataBaseCreation } from "./database/creation";
 import { TableCreationList } from "./database/createtables"
 import { UserService } from "./services/user.service";
-import bodyParser from 'body-parser';
 import { BasketService } from "./services/basket.service";
 import { ItemService } from "./services/item.service";
 import { OrderService } from "./services/order.service";
@@ -16,59 +17,70 @@ const dataBase = new DatabaseConnection("localhost", "root", "root", "e_commerce
 const create = new DataBaseCreation(dataBase);
 const dataBaseTableList = new TableCreationList();
 
-create.dataBase("e_commerce");
-const userService = new UserService(dataBase);
-const basketService = new BasketService(dataBase);
-const itemService = new ItemService(dataBase);
-const orderService = new OrderService(dataBase);
+const startApp = async () => {
+  try {
+    await create.dataBase("e_commerce");
 
-app.use(function (request, response, next){
-  response.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
-  response.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-  response.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-  next();
-});
+    const userService = new UserService(dataBase);
+    const basketService = new BasketService(dataBase);
+    const itemService = new ItemService(dataBase);
+    const orderService = new OrderService(dataBase);
 
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(bodyParser.json());
+    app.use(function (request, response, next){
+      response.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
+      response.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+      response.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+      next();
+    });
 
-userService.app = app;
-basketService.app = app;
-itemService.app = app;
-orderService.app = app;
+    app.use(bodyParser.urlencoded({extended: false}));
+    app.use(bodyParser.json());
 
+    [userService, basketService, itemService, orderService].forEach(
+      (service) => (service.app = app)
+    );
 
-create.table(dataBase.databaseName, dataBaseTableList.addUserTable());
-create.table(dataBase.databaseName, dataBaseTableList.addItemTable());
-create.table(dataBase.databaseName, dataBaseTableList.addOrderTable());
-create.table(dataBase.databaseName, dataBaseTableList.addBasketTable());
-create.table(dataBase.databaseName, dataBaseTableList.addBasketItemsTable());
-create.table(dataBase.databaseName, dataBaseTableList.addOrderItemsTable());
+    const tables = [
+      dataBaseTableList.addUserTable(),
+      dataBaseTableList.addItemTable(),
+      dataBaseTableList.addOrderTable(),
+      dataBaseTableList.addBasketTable(),
+      dataBaseTableList.addBasketItemsTable(),
+      dataBaseTableList.addOrderItemsTable(),
+    ];
 
-userService.getUser();
-userService.getUserById();
-userService.saveUser();
+    for (const table of tables) {
+      await create.table(dataBase.databaseName, table);
+    }
 
-orderService.getOrder();
-orderService.getOrderItemsByOrderId();
-orderService.getOrderByUserId();
+    userService.getUser();
+    userService.getUserById();
+    userService.saveUser();
 
-orderService.saveOrder();
-orderService.saveOrderItems();
+    orderService.getOrder();
+    orderService.getOrderItemsByOrderId();
+    orderService.getOrderByUserId();
+    orderService.saveOrder();
+    orderService.saveOrderItems();
 
-basketService.getBasket();
-basketService.getBasketByUserId();
-basketService.getBasketItems();
-basketService.deleteBasketItems();
+    basketService.getBasket();
+    basketService.getBasketByUserId();
+    basketService.getBasketItems();
+    basketService.deleteBasketItems();
+    basketService.saveBasketItem();
+    basketService.saveBasket();
 
-basketService.saveBasketItem();
-basketService.saveBasket();
+    itemService.getItem();
+    itemService.getItemById();
+    itemService.saveItems(createItems);;
 
-itemService.getItem();
-itemService.getItemById();
+    app.listen(port, () => {
+      console.log(`Server running on http://localhost:${port}`);
+    });
+  } catch (err) {
+    console.error("Erreur lors de l'initialisation de la BDD :", err);
+    process.exit(1);
+  }
+};
 
-setTimeout(() => {
-  itemService.saveItems(createItems);;
-}, 1000);
-
-app.listen(port);
+startApp();
