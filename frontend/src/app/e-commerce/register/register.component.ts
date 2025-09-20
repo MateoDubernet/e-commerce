@@ -21,10 +21,10 @@ export class RegisterComponent implements OnInit {
 
   public emailPattern = "[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*";
   public registerForm: UntypedFormGroup = new UntypedFormGroup({
-    'nom': new UntypedFormControl('test', [Validators.required]),
-    'prenom': new UntypedFormControl('test', [Validators.required]),
-    'email': new UntypedFormControl('test@test', Validators.pattern(this.emailPattern)),
-    'password': new UntypedFormControl('test', [Validators.required]),
+    'nom': new UntypedFormControl('', [Validators.required]),
+    'prenom': new UntypedFormControl('', [Validators.required]),
+    'email': new UntypedFormControl('', Validators.pattern(this.emailPattern)),
+    'password': new UntypedFormControl('', [Validators.required]),
   });
 
   constructor(
