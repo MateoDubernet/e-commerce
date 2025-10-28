@@ -3,6 +3,7 @@
 ## Contexte
 
 ### Description
+Il s'agit d'un projet utilisant Angular pour le frontend et Express.js pour le backend, il a été réaliser en groupe durant mon alternance dans le cadre d'un devoir maison.
 Cette application est une démo de site e-commerce avec visualisation de produit, ajout de produit au panier, validation du panier et visualisation du profil et des commandes réaliser.
 
 ---
