@@ -7,18 +7,54 @@ Cette application est une démo de site e-commerce avec visualisation de produit
 
 ---
 
+## Prérequis
+
+- Node.js et npm installés
+- MySQL
+
+---
+
 ## Installation et Lancement
-- Ouvrir deux terminal un pour le dossier frontend et un autre pour le dossier backend
-- Accéder au dossier backend avec la commande cd backend et au dossier frontend avec la commande cd frontend
-- Pour les deux lancer npm install --force
+### 1. Cloner le projet
+```bash
+   git clone <url-du-repo>
+   cd <dossier-projet>
+```
 
-### Configuration
-Aller dans le fichier backend/src/main.ts et rechercher 'new DatabaseConnection("localhost", "root", "root", "e_commerce", 3306)' et remplacer les valeurs par les votres '(host, user, password, databaseName, port)'
+### 2. Accéder aux différentes parties
+- Ouvrir deux terminals un pour le dossier frontend et un autre pour le dossier backend
+- Accéder au dossier frontend :
+```bash
+  cd frontend
+```
+- Accéder au dossier backend :
+```bash
+  cd backend
+```
 
-### Lancement
-- Pour lancer le serveur aller sur backend et tapez la commande npm start
-- Pour lancer le client aller sur frontend et tapez la commande ng s
+### 3. Installer les dépendances
+Dans touts les terminals lancer la commande :
+```bash
+   npm install
+```
+ou
+```bash
+    npm install --force
+```
 
+### 4. Configuration
+- Créer la base de données **e_commerce** avec MySQL
+- Aller dans le fichier backend/src/main.ts -> 'new DatabaseConnection("localhost", "root", "root", "e_commerce", 3306)' - Remplacer les valeurs par celles pour la connexion à la base de données '(host, user, password, databaseName, port)'
+
+### 5. Lancement
+Dans le terminal pour le dossier backend :
+```bash
+  npm start
+```
+Dans le terminal pour le dossier frontend :
+```bash
+  ng serve
+```
 Dans le navigateur aller à l'adresse indiqué dans le terminal pour frontend (normalement http://localhost:4200/)
 
 ---
