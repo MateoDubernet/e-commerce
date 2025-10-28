@@ -1,22 +1,21 @@
 # ECommerce
 
+## Contexte
+
+### Description
 Cette application est une démo de site e-commerce avec visualisation de produit, ajout de produit au panier, validation du panier et visualisation du profil et des commandes réaliser.
 
 ---
 
-## Installation
+## Installation et Lancement
 - Ouvrir deux terminal un pour le dossier frontend et un autre pour le dossier backend
 - Accéder au dossier backend avec la commande cd backend et au dossier frontend avec la commande cd frontend
 - Pour les deux lancer npm install --force
 
----
-
-## Configuration
+### Configuration
 Aller dans le fichier backend/src/main.ts et rechercher 'new DatabaseConnection("localhost", "root", "root", "e_commerce", 3306)' et remplacer les valeurs par les votres '(host, user, password, databaseName, port)'
 
----
-
-## Lancement
+### Lancement
 - Pour lancer le serveur aller sur backend et tapez la commande npm start
 - Pour lancer le client aller sur frontend et tapez la commande ng s
 
@@ -24,7 +23,7 @@ Dans le navigateur aller à l'adresse indiqué dans le terminal pour frontend (n
 
 ---
 
-## Utilisation
+## Fonctionnalités
 1. Créer un compte et se connecter
 2. Voir la liste des produits en cliquant sur nos produits
 3. Ajouter de produits au panier et visualiser les détails
