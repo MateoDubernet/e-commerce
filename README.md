@@ -11,6 +11,7 @@ Cette application est une démo de site e-commerce avec visualisation de produit
 ## Prérequis
 
 - Node.js et npm installés
+- Angular CLI installé globalement (`npm install -g @angular/cli`)
 - MySQL
 
 ---
