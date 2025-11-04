@@ -23,22 +23,18 @@ Cette application est une démo de site e-commerce avec visualisation de produit
 ```
 
 ### 2. Aller sur le projet
-```bash
-   cd e-commerce
-```
+Depuis le dossier **e-commerce** ouvrir deux terminals un pour le dossier **frontend** et un autre pour le dossier **backend**
 
-### 3. Accéder aux différentes parties
-- Ouvrir deux terminals un pour le dossier frontend et un autre pour le dossier backend
-- Accéder au dossier frontend :
+- Accèder à la partie **frontend** depuis le premier terminal :
 ```bash
   cd frontend
 ```
-- Accéder au dossier backend :
+- Accèder à la partie **backend** depuis le premier terminal :
 ```bash
   cd backend
 ```
 
-### 4. Installer les dépendances
+### 3. Installer les dépendances
 Dans touts les terminals lancer la commande :
 ```bash
    npm install
@@ -48,11 +44,11 @@ ou
     npm install --force
 ```
 
-### 5. Configuration
+### 4. Configuration
 - Créer la base de données **e_commerce** avec MySQL
 - Aller dans le fichier backend/src/main.ts -> 'new DatabaseConnection("localhost", "root", "root", "e_commerce", 3306)' - Remplacer les valeurs par celles pour la connexion à la base de données '(host, user, password, databaseName, port)'
 
-### 6. Lancement
+### 5. Lancement
 Dans le terminal pour le dossier backend :
 ```bash
   npm start
