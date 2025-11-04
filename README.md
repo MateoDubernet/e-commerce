@@ -19,11 +19,15 @@ Cette application est une démo de site e-commerce avec visualisation de produit
 ## Installation et Lancement
 ### 1. Cloner le projet
 ```bash
-   git clone <url-du-repo>
-   cd <dossier-projet>
+   git clone https://github.com/MateoDubernet/e-commerce.git
 ```
 
-### 2. Accéder aux différentes parties
+### 2. Aller sur le projet
+```bash
+   cd e-commerce
+```
+
+### 3. Accéder aux différentes parties
 - Ouvrir deux terminals un pour le dossier frontend et un autre pour le dossier backend
 - Accéder au dossier frontend :
 ```bash
@@ -34,7 +38,7 @@ Cette application est une démo de site e-commerce avec visualisation de produit
   cd backend
 ```
 
-### 3. Installer les dépendances
+### 4. Installer les dépendances
 Dans touts les terminals lancer la commande :
 ```bash
    npm install
@@ -44,11 +48,11 @@ ou
     npm install --force
 ```
 
-### 4. Configuration
+### 5. Configuration
 - Créer la base de données **e_commerce** avec MySQL
 - Aller dans le fichier backend/src/main.ts -> 'new DatabaseConnection("localhost", "root", "root", "e_commerce", 3306)' - Remplacer les valeurs par celles pour la connexion à la base de données '(host, user, password, databaseName, port)'
 
-### 5. Lancement
+### 6. Lancement
 Dans le terminal pour le dossier backend :
 ```bash
   npm start
