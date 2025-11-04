@@ -25,11 +25,11 @@ Cette application est une démo de site e-commerce avec visualisation de produit
 ### 2. Aller sur le projet
 Depuis le dossier **e-commerce** ouvrir deux terminals un pour le dossier **frontend** et un autre pour le dossier **backend**
 
-- Accèder à la partie **frontend** depuis le premier terminal :
+- Accèder au dossier **frontend** depuis le premier terminal :
 ```bash
   cd frontend
 ```
-- Accèder à la partie **backend** depuis le premier terminal :
+- Accèder au dossier **backend** depuis le premier terminal :
 ```bash
   cd backend
 ```
