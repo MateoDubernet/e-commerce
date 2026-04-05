@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  # --- BASE DE DONNÉES ---
+  db:
+    image: mysql:8.0
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=e_commerce
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  # --- BACKEND ---
+  backend:
+    build: ./server
+    command: sh -c "sleep 10 && npm start"
+    ports:
+      - "8000:8000"
+    environment:
+      - DB_HOST=db
+      - DB_USER=root
+      - DB_PASS=root
+      - DB_NAME=e_commerce
+    depends_on:
+      db:
+        condition: service_healthy
+
+  # --- FRONTEND ---
+  frontend:
+    build: ./client
+    ports:
+      - "80:80"
+    depends_on:
+      - backend

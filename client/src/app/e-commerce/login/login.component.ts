@@ -43,9 +43,8 @@ export class LoginComponent implements OnInit {
       });
     }
   }
-  
-  public signIn() {
 
+  public signIn() {
     this.submitForm = true;
 
     this.loginForm.markAllAsTouched();

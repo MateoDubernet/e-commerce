@@ -15,7 +15,7 @@ const order_service_1 = require("./services/order.service");
 const createitems_1 = require("./database/createitems");
 const app = (0, express_1.default)();
 const port = 8000;
-const dataBase = new connection_1.DatabaseConnection("localhost", "root", "root", "e_commerce", 3306);
+const dataBase = new connection_1.DatabaseConnection(process.env.DB_HOST || "localhost", process.env.DB_USER || "root", process.env.DB_PASS || "root", process.env.DB_NAME || "e_commerce", 3306);
 const create = new creation_1.DataBaseCreation(dataBase);
 const dataBaseTableList = new createtables_1.TableCreationList();
 const startApp = async () => {
@@ -26,7 +26,7 @@ const startApp = async () => {
         const itemService = new item_service_1.ItemService(dataBase);
         const orderService = new order_service_1.OrderService(dataBase);
         app.use(function (request, response, next) {
-            response.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
+            response.setHeader('Access-Control-Allow-Origin', 'http://localhost');
             response.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
             response.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
             next();

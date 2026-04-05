@@ -13,7 +13,13 @@ import { createItems } from "./database/createitems";
 const app = express();
 const port = 8000;
 
-const dataBase = new DatabaseConnection("localhost", "root", "root", "e_commerce", 3306);
+const dataBase = new DatabaseConnection(
+  process.env.DB_HOST || "localhost",
+  process.env.DB_USER || "root",
+  process.env.DB_PASS || "root",
+  process.env.DB_NAME || "e_commerce",
+  3306
+);
 const create = new DataBaseCreation(dataBase);
 const dataBaseTableList = new TableCreationList();
 
@@ -27,7 +33,7 @@ const startApp = async () => {
     const orderService = new OrderService(dataBase);
 
     app.use(function (request, response, next){
-      response.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
+      response.setHeader('Access-Control-Allow-Origin', 'http://localhost');
       response.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
       response.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
       next();

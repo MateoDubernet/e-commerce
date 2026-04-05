@@ -13,7 +13,7 @@ export class NavigationComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  goTo(path: string){
+  goTo(path: string) {
     this.router.navigate([path]);
   }
 }

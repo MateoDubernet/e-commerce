@@ -28,7 +28,7 @@ export class RegisterComponent implements OnInit {
   });
 
   constructor(
-    private userService: UserService, 
+    private userService: UserService,
     private basketService: BasketService,
     private router: Router) { }
 
