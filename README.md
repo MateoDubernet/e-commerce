@@ -3,11 +3,10 @@
 ## Présentation
 Ce projet est une application démo de site e-commerce, il a été réaliser durant mon alternance dans le cadre d'un devoir maison.
 
-### Architecture
-- **Front-end** : Angular.
-- **Back-end** : ExpressJs.
-- **Base de données** : Mysql.
-- **Infrastructure** : Docker & Docker Compose.
+### Stack Technique
+- **Angular**.
+- **Expressjs**.
+- **Docker**.
 
 ---
 
@@ -20,15 +19,15 @@ Ce projet est une application démo de site e-commerce, il a été réaliser dur
 ### 2. Lancement (Docker)
 **Prérequis :** [Docker Desktop](https://www.docker.com/products/docker-desktop) installé et lancé.
 
+[!IMPORTANT]
+Assurez-vous que les ports 80 et 8000 ne sont pas déjà utilisés par une autre application sur votre machine avant de lancer le conteneur.
+
 ```bash
     cd ./e-commerce
     docker-compose up --build
 ```
 ### 3. Accès
-- **Interface Client** : http://localhost (Port 80)
-
-[!IMPORTANT]
-Assurez-vous que les ports 80 et 8000 ne sont pas déjà utilisés par une autre application sur votre machine avant de lancer le conteneur.
+Ouvrir un navigateur web et aller à l'adresse: http://localhost
 
 ---
 

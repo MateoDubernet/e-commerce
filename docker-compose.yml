@@ -1,7 +1,6 @@
 version: '3.8'
 
 services:
-  # --- BASE DE DONNÉES ---
   db:
     image: mysql:8.0
     environment:
@@ -13,7 +12,6 @@ services:
       timeout: 5s
       retries: 10
 
-  # --- BACKEND ---
   backend:
     build: ./server
     command: sh -c "sleep 10 && npm start"
@@ -28,7 +26,6 @@ services:
       db:
         condition: service_healthy
 
-  # --- FRONTEND ---
   frontend:
     build: ./client
     ports:
