@@ -4,9 +4,9 @@
 Ce projet est une application démo de site e-commerce, il a été réaliser durant mon alternance dans le cadre d'un devoir maison.
 
 ### Stack Technique
-- **Angular**.
-- **Expressjs**.
-- **Docker**.
+- **Angular**
+- **Expressjs**
+- **Docker**
 
 ---
 
